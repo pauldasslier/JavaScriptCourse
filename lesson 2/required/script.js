@@ -24,29 +24,32 @@ for (i = 0; i < 3; i++) {
 	}
 }
 
-//Второй вариант, здесь if не актуален, т.к. запись идет сразу в объект
 
-/*for (i = 0; i < 3; i++) {
-	myGoods.push( prompt('Какой тип товаров будем продавать?') );
-}
-
-mainList.shopGoods = myGoods;*/
-
-
-// Третий вариант
-
-/*for (i = 0; i < 3; i++) {
-
-	myGoods[i] = prompt('Какой тип товаров будем продавать?');
-	if (typeof(myGoods[i]) === 'string' && myGoods[i] !== '') {
+/*i = 0;
+while (i < 3) {
+ var a = prompt('Какой тип товаров будем продавать?');
+ if (typeof(a) === 'string' && a !== '') {
 		console.log('Все верно!');
+	 mainList.shopGoods[i] = a;
 	} else {
 		i--;
 		alert('Вы не выбрали товары!');
 	}
-}
+	i++;
+}*/
 
-mainList.shopGoods = myGoods;*/
+/*i = 0;
+do {
+	var a = prompt('Какой тип товаров будем продавать?');
+ if (typeof(a) === 'string' && a !== '') {
+		console.log('Все верно!');
+	 mainList.shopGoods[i] = a;
+	} else {
+		i--;
+		alert('Вы не выбрали товары!');
+	}
+	i++;
+} while (i < 3);*/
 
 console.log(mainList);
 
