@@ -21,7 +21,7 @@ mainList = {
 	budget: money,
 	shopName: name,
 	shopGoods: [],
-	employers: [],
+	employers: {},
 	open: true,
 	discount: false
 };
@@ -75,8 +75,8 @@ isDiscount()
 
 function isRecruitment() {
 
-	for (let i = 0; i < 4; i++) {
-		let x = i + 1 + ' - ' + prompt('Ваше имя?');
+	for (let i = 1; i < 5; i++) {
+		let x = prompt('Ваше имя?');
 		mainList.employers[i] = x;
 	}
 }

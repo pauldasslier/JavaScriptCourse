@@ -13,15 +13,15 @@ console.log(str);
 
 let y = [];
 for (let i = 0; i < arr.length; i++) {
-	y.push(Math.pow(arr[i], 3));
+	if (typeof(arr[i]) == 'number') {
+		y.push(Math.pow(arr[i], 3));
+	}
 }
 
 let sum = 0;
-for(var i = 0; i < arr.length; i++){
+for(var i = 0; i < y.length; i++){
  sum = sum + parseInt(y[i]);
-
 }
-
 console.log(Math.sqrt(sum));
 
 function isArgument (x) {
