@@ -1,6 +1,5 @@
 let newLi = document.createElement('li'),
     menu = document.querySelector('.menu'),
-    body = document.getElementsByTagName('body'),
     ad = document.querySelector('.adv'),
     question = prompt('Как вы относитесь к технике Apple?', 'Отлично'),
     answer = document.querySelector('.prompt');
