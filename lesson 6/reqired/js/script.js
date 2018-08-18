@@ -29,9 +29,16 @@ let inputGoods = document.querySelector('.choose-item'),
 // Получить поля имен сотрудников через querySelectorAll
 let employers = document.querySelectorAll('.hire-employers-item');
 
-let money,
-    price;
+let money;
 
+mainList = {
+    budget: money,
+    shopName: name,
+    shopGoods: [],
+    employers: {},
+    open: false,
+    discount: false
+};
 
 openBtn.addEventListener('click', () => {
     money = prompt('Ваш бюджет?', '');
@@ -77,10 +84,6 @@ inputGoods.addEventListener('change', () => {
     console.log(mainList.shopItems);
 });
 
-goodsBtn.disabled = true;
-budgetBtn.disabled = true;
-employersBtn.disabled = true;
-
 inputTime.addEventListener('change', () => {
     let time = inputTime.value;
 
@@ -105,9 +108,7 @@ inputTime.addEventListener('change', () => {
     }
 
     if (mainList.open == true) {
-     goodsBtn.disabled = false;
-     budgetBtn.disabled = false;
-     employersBtn.disabled = false;
+     btnCondition(false);
     }
 
 });
@@ -134,11 +135,10 @@ discount.addEventListener('click', () => {
     discount.style.backgroundColor = 'green';
 });
 
-mainList = {
-    budget: money,
-    shopName: name,
-    shopGoods: [],
-    employers: {},
-    open: false,
-    discount: false
-};
+function btnCondition(prop) {
+    goodsBtn.disabled = prop;
+    budgetBtn.disabled = prop;
+    employersBtn.disabled = prop;
+}
+
+btnCondition(true);
