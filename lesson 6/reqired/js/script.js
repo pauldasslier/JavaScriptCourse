@@ -77,6 +77,10 @@ inputGoods.addEventListener('change', () => {
     console.log(mainList.shopItems);
 });
 
+goodsBtn.disabled = true;
+budgetBtn.disabled = true;
+employersBtn.disabled = true;
+
 inputTime.addEventListener('change', () => {
     let time = inputTime.value;
 
@@ -101,12 +105,14 @@ inputTime.addEventListener('change', () => {
     }
 
     if (mainList.open == true) {
-     goodsBtn.removeAttribute('disabled');
-     budgetBtn.removeAttribute('disabled');
-     employersBtn.removeAttribute('disabled');
+     goodsBtn.disabled = false;
+     budgetBtn.disabled = false;
+     employersBtn.disabled = false;
     }
 
 });
+
+inputBudget.readOnly = true;
 
 budgetBtn.addEventListener('click', () => {
     inputBudget.value = money / 30;
