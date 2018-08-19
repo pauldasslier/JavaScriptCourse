@@ -17,8 +17,7 @@ let goodsItem = document.getElementsByClassName('goods-item');
 let functions = document.getElementsByClassName('main-functions');
 let goodsBtn = functions[0].getElementsByTagName('button')[0],
     budgetBtn = functions[0].getElementsByTagName('button')[1],
-    employersBtn = functions[0].getElementsByTagName('button')[2],
-    allBtn = functions[0].getElementsByTagName('button');
+    employersBtn = functions[0].getElementsByTagName('button')[2];
 
 // Получаем поля ввода товаров, времени и расчета бюджета через
 // querySelector
@@ -29,9 +28,16 @@ let inputGoods = document.querySelector('.choose-item'),
 // Получить поля имен сотрудников через querySelectorAll
 let employers = document.querySelectorAll('.hire-employers-item');
 
-let money,
-    price;
+let money;
 
+mainList = {
+    budget: money,
+    shopName: name,
+    shopGoods: [],
+    employers: {},
+    open: false,
+    discount: false
+};
 
 openBtn.addEventListener('click', () => {
     money = prompt('Ваш бюджет?', '');
@@ -74,16 +80,11 @@ inputGoods.addEventListener('change', () => {
 
     items_value.textContent = mainList.shopItems;
 
+    console.log(mainList.shopItems);
 });
-
-goodsBtn.disabled = true;
-budgetBtn.disabled = true;
-employersBtn.disabled = true;
-
 
 inputTime.addEventListener('change', () => {
     let time = inputTime.value;
-    
 
     if (time < 0) {
      console.log('Такого не может быть!');
@@ -101,11 +102,12 @@ inputTime.addEventListener('change', () => {
 
     if (mainList.open == true) {
         isOpen.style.backgroundColor = 'green';
-        goodsBtn.disabled = false;
-        budgetBtn.disabled = false;
-        employersBtn.disabled = false;
     } else {
         isOpen.style.backgroundColor = 'red';
+    }
+
+    if (mainList.open == true) {
+     btnCondition(false);
     }
 
 });
@@ -114,9 +116,12 @@ inputBudget.readOnly = true;
 
 budgetBtn.addEventListener('click', () => {
     inputBudget.value = money / 30;
+    console.log(inputBudget);
 });
 
 employersBtn.addEventListener('click', () => {
+    // Очищаем поле с сотрудниками при каждом клике
+    personal.textContent = '';
     for (let i = 0; i < employers.length; i++) {
      let employerName = employers[i].value;
      mainList.employers[i] = employerName;
@@ -131,11 +136,81 @@ discount.addEventListener('click', () => {
     discount.style.backgroundColor = 'green';
 });
 
-mainList = {
-    budget: money,
-    shopName: name,
-    shopGoods: [],
-    employers: {},
-    open: false,
-    discount: false
-};
+function btnCondition(prop) {
+    goodsBtn.disabled = prop;
+    budgetBtn.disabled = prop;
+    employersBtn.disabled = prop;
+}
+
+btnCondition(true);
+
+function rusLetters(employer) {
+    employer.addEventListener('input', () => {
+        // Присваиваем введенные в input данные в переменную
+        let inputProp = employer.value;
+        // Сравниваем значение переменной с кириллицей и дополнительно с пробельным символом,
+        // чтобы не выдавал ошибку при вводе пробела
+        if (inputProp.match(/\s$/) == null && inputProp.match(/[а-я]$/ig) == null) {
+            alert('Только кириллица');
+            // При использовании не кириллицы и не пробела - очищаем input
+            employer.value = '';
+        }
+    });
+}
+
+rusLetters(employers_1);
+rusLetters(employers_2);
+rusLetters(employers_3);
+
+// Дополнительный скрипт к ДЗ
+let titles = document.getElementById('titles');
+titles.hidden = true;
+let darkBtn;
+let darkSide = confirm('Перейти на темную сторону?');
+if (darkSide == true) {
+    // Удаляем старые стили
+    let lightLink = document.getElementsByTagName('link')[0];
+    lightLink.remove();
+    let darkLink = document.createElement('link');
+    // Создаем тег link и добавляем в него ссылку на новые стили
+    document.body.appendChild(darkLink);
+    darkLink.setAttribute('rel', 'stylesheet');
+    darkLink.setAttribute('href', 'css/main.css');
+    // Добавили заголовок H1
+    let darkHeader = document.createElement('h1')
+    darkHeader.innerHTML = 'Добро пожаловать на темную сторону';
+    darkHeader.classList.add('header-h1');
+    main.appendChild(darkHeader);
+    // Меняем текст кнопки
+    let planet = document.getElementById('open-btn')
+    planet.textContent = 'Открыть темный магазин';
+    // Добавляем новую кнопку
+    darkBtn = document.createElement('button')
+    darkBtn.classList.add('dark-btn');
+    darkBtn.innerHTML = 'Активировать';
+    document.body.appendChild(darkBtn);
+
+    let titlesBtn = document.getElementsByClassName('dark-btn')[0];
+
+titlesBtn.addEventListener('click', () => {
+    let hiddenDiv = document.getElementsByClassName('hide-div')[0];
+    if (name.textContent != '' && budget.textContent != '' 
+    && goods.textContent != '' && items_value.textContent != '' 
+    && personal.textContent != '') {
+        textShop.textContent = name.textContent;
+        textMoney.textContent = budget.textContent;
+        textGoods.textContent = goods.textContent;
+        textItem.textContent = items_value.textContent;
+        textPersonal.textContent = personal.textContent;
+        hiddenDiv.hidden = true;
+        titles.hidden = false;
+        darkBtn.remove();
+    } else {
+        alert('Заполните все поля!')
+    }
+        
+});
+}
+
+
+
