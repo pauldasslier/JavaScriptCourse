@@ -1,0 +1,33 @@
+body {
+	background-color: black;
+}
+.box {
+	position: relative;
+	width: 1260px;
+	height: 900px;
+	border: 2px solid red;
+}
+/*.square {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	box-shadow: 0 0 2px #ffffff, 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
+}*/
+button {
+	width: 210px;
+	height: 70px;
+	position: absolute;
+	text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 700;
+	border-radius: 8px;
+	background-color: yellow;
+	top: 40%;
+	left: 40%;
+}
+button:focus {
+	outline: none;
+}
