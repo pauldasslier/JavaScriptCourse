@@ -7,15 +7,6 @@ body {
 	height: 900px;
 	border: 2px solid red;
 }
-/*.square {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100px;
-	height: 100px;
-	background-color: white;
-	box-shadow: 0 0 2px #ffffff, 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
-}*/
 button {
 	width: 210px;
 	height: 70px;

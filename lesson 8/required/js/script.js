@@ -80,5 +80,52 @@ window.addEventListener('DOMContentLoaded', function() {
  }
 
  setClock('timer', deadline);
+
+
+ // Плавная прокрутка экрана
+ 
+ function getScroll() {
+ 	// Получаем навигационный блок и все ссылки в нем
+	let nav = document.getElementsByTagName('nav')[0],
+	    links = nav.getElementsByTagName('a');
+	    
+	    for (let i = 0; i < links.length; i++) {
+	    	// Вешаем событие на каждую кликнутую ссылку
+	    	links[i].addEventListener('click', () => {
+	    		// Отменяем стандартные действия браузера
+	    		event.preventDefault();
+	    		// Задаем переменную для ссылки в цикле
+	    		let link = links[i],
+	    		// Получаем в переменную значение атрибута href
+	    		    linkAttr = link.getAttribute('href');
+	    		// Ищем в атрибуте href только буквенные значения
+	    		linkAttr = linkAttr.match(/[a-z]/gi);
+	    		// Полученный массив преобразовываем в строку
+	    		let linkStr = linkAttr.join(''),
+	    		// Ищем все элементы, в которых ID совпадает
+	    		// со значением полученной выше строки
+	    		    div = document.getElementById(linkStr),
+	    		// Получем значение ID у найденных элементов
+	    		    divId = div.getAttribute('id');
+	    		// Если значение href в кликнутой ссылке равно
+	    		// полученному значению ID то запускаем функцию
+	    		// с анимацией
+	    		if (linkStr == divId) {
+	    			let divIdY = div.getBoundingClientRect().top - 80;
+	    			console.log(divIdY);
+	    			// window.scrollBy(0, divIdY);
+	    			var timerId = setTimeout(function tick() {
+            window.scrollBy(0, divIdY);
+        timerId = setTimeout(tick, 1000);
+        }, 1000);
+	    		}
+
+	    	});
+	    };
+ }
+
+ getScroll();
+
 });
+
 

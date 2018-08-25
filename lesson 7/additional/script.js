@@ -1,38 +1,41 @@
-let btn = document.querySelector('.btn');
+var btn = document.querySelector('.btn');
 
-// function animation() {
-// 	let box = document.querySelector('.square'),
-// 	    x = 0,
-// 	    y = 0,
-// 	    id = setInterval(frame, 10);
+function animate(draw, duration) {
+  let start = performance.now();
 
-// 	    function frame() {
-// 	    	if (y == 800 || x == 1160) {
-// 	    		x--;
-// 	    		box.style.top = y + 'px';
-// 	    	 box.style.left = x + 'px';
-// 	    	}
-// 	    	else {
-// 	    	x++;
-// 	    	box.style.top = y + 'px';
-// 	    	box.style.left = x + 'px';
-// 	    }
-// 	  } 
-// }
-function animation() {
-	let x = btn.style.width,
-	    y = btn.style.height;
-	    // id = setInterval(frame, 10);
-	    console.log(x);
+  requestAnimationFrame(function animate(time) {
+    // определить, сколько прошло времени с начала анимации
+    let timePassed = time - start;
 
-	// function frame() {
-	// 	if (x == 840) {
-	// 		clearInterval(id);
-	// 	} else {
-	// 		x++;
-	// 		btn.style.
-	// 	}
-	// }
+    // возможно небольшое превышение времени, в этом случае зафиксировать конец
+    if (timePassed > duration) timePassed = duration;
+
+    // нарисовать состояние анимации в момент timePassed
+    draw(timePassed);
+
+    // если время анимации не закончилось - запланировать ещё кадр
+    if (timePassed < duration) {
+      requestAnimationFrame(animate);
+    }
+
+  });
 }
 
-btn.addEventListener('click', animation);
+btn.addEventListener('click', () => {
+	animate(function(timePassed) {
+		let btnHeight = 70;
+		    id = setInterval(frame, 10);
+
+		function frame() {
+			if (btnHeight == 10) {
+				clearInterval(id);
+				btn.remove();
+			} else {
+				btnHeight--;
+				btn.style.height = btnHeight + 'px';
+				console.log(btn.clientHeight);
+				
+			}
+		}
+	});
+});
