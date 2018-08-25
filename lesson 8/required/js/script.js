@@ -85,6 +85,24 @@ window.addEventListener('DOMContentLoaded', function() {
  // Плавная прокрутка экрана
  
  function getScroll() {
+
+ 	function animate(draw, duration) {
+ 		var start = performance.now();
+
+ 		requestAnimationFrame(function animate(time) {
+ 			var timePassed = time - start;
+
+ 			if (timePassed > duration) {
+ 				timePassed = duration;
+ 			}
+
+ 			draw(timePassed);
+
+ 			if (timePassed < duration) {
+ 				requestAnimationFrame(animate);
+ 			}
+ 		});
+ 	}
  	// Получаем навигационный блок и все ссылки в нем
 	let nav = document.getElementsByTagName('nav')[0],
 	    links = nav.getElementsByTagName('a');
@@ -111,13 +129,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	    		// полученному значению ID то запускаем функцию
 	    		// с анимацией
 	    		if (linkStr == divId) {
-	    			let divIdY = div.getBoundingClientRect().top - 80;
-	    			console.log(divIdY);
-	    			// window.scrollBy(0, divIdY);
-	    			var timerId = setTimeout(function tick() {
-            window.scrollBy(0, divIdY);
-        timerId = setTimeout(tick, 1000);
-        }, 1000);
+	    			 // let divIdY = div.getBoundingClientRect().top;
+	    				// window.scrollBy(0, divIdY / 20 -3);
+	    			animate(function(timePassed) {
+	    				let divIdY = div.getBoundingClientRect().top - 80;
+	    				window.scrollBy(0, divIdY / 15);
+	    			}, 1500);
 	    		}
 
 	    	});
