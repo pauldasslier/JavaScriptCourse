@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', function() {
      	dots[slideIndex - 1].classList.add('dot-active');
      }
 
-     function plusSlides (n) {
+     function plusSlides(n) {
      	showSlides(slideIndex += n);
      }
 
@@ -269,11 +269,11 @@ window.addEventListener('DOMContentLoaded', function() {
      	showSlides(slideIndex = n);
      }
 
-     prev.addEventListener('change', function() {
+     prev.addEventListener('click', function() {
      	plusSlides(-1);
      });
 
-     next.addEventListener('change', function() {
+     next.addEventListener('click', function() {
      	plusSlides(1);
      });
 
@@ -305,20 +305,15 @@ window.addEventListener('DOMContentLoaded', function() {
 
          	if (restDays.value == '' || persons.value == '') {
          		totalValue.innerHTML = 0;
-         	} else {
-         		totalValue.innerHTML = total;
-         	}
-         	if (persons.value % 1 !== 0) {
+         	} else if (persons.value % 1 !== 0) {
          		persons.value = Math.floor(persons.value);
+         	} else {
+         		getSelect();
          	}
 
          	if (persons.value == '') {
          		persons.value = '';
          	}
-
-         	// personsValue.addEventListener('keydown' function(event) {
-         	// 	console.log(personsValue.keyCode);
-         	// });
 
          });
 
@@ -327,11 +322,10 @@ window.addEventListener('DOMContentLoaded', function() {
          	total = (daysSum + personsSum) * 4000;
          	if (persons.value == '' || restDays.value == '') {
          		totalValue.innerHTML = 0;
-         	} else {
-         		totalValue.innerHTML = total;
-         	}
-         	if (restDays.value % 1 !== 0) {
+         	} else if (restDays.value % 1 !== 0) {
          		restDays.value = Math.floor(restDays.value);
+         	} else {
+         		getSelect();
          	}
 
          	if (restDays.value == '') {
@@ -344,13 +338,15 @@ window.addEventListener('DOMContentLoaded', function() {
          	if (restDays.value == '' || persons.value == '') {
          		totalValue.innerHTML = 0;
          	} else {
-         		let x = total;
-         		totalValue.innerHTML = x * this.options[this.selectedIndex].value;
+         		getSelect();
          	}
-         })
 
+         });
 
-
+         function getSelect() {
+         	let x = total;
+         	totalValue.innerHTML = x * place.options[place.selectedIndex].value;
+         }
 
 });
 
