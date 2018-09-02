@@ -1,59 +1,63 @@
 function send() {
-	let message = new Object(),
-	    statusMessage = document.createElement('div'),
-	    form = document.getElementsByClassName('main-form')[0],
-	    modalInput = form.getElementsByTagName('input'),
-	    contactForm = document.getElementsByClassName('contact-form')[0],
-	    contactInput = contactForm.getElementsByTagName('input');
+	 let message = new Object();
+	 message.loading = 'Загрузка...';
+	 message.success = 'Спасибо, скоро мы с вами свяжемся';
+	 message.failure = 'Что-то пошло не так';
 
-	statusMessage.classList.add('status');
-	message.loading = 'Загрузка...';
-	message.success = 'Спасибо, скоро мы с вами свяжемся';
-	message.failure = 'Что-то пошло не так';
+	 // Блок для оповещения
 
-	let sendForm = function(formType, formInput) {
-	  formType.addEventListener('submit', function(event) {
-	  event.preventDefault();
-	  formType.appendChild(statusMessage);
+	 let statusMessage = document.createElement('div');
+	     statusMessage.classList.add('status');
 
-	  let request = new XMLHttpRequest();
-	  request.open('POST', 'server.php');
+	 // Модальная форма
 
-	  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	 let form = document.getElementsByClassName('main-form')[0],
+	     modalInput = form.getElementsByTagName('input');
 
-	  let formData = new FormData(formType);
+	 // Контактная форма
 
-	  request.send(formData);
+	 let contactForm = document.getElementsByClassName('contact-form')[0],
+	     contactInput = contactForm.getElementsByTagName('input');
 
-	  request.onreadystatechange = function() {
-	    let promise = new Promise(function(resolve, reject) {
-	      if (request.readyState < 4) {
-	        resolve();
-	      } else if (request.readyState === 4) {
-	        if (request.status == 200 && request.status < 300) {
-	          resolve();
-	        } else {
-	          reject();
-	        }
-	      }
-	    });
+	 let sendForm = function(formType, formInput) {
+		     formType.addEventListener('submit', function(event) {
+	     	event.preventDefault();
+	     	formType.appendChild(statusMessage);
 
-	    promise
-	         .then( () => statusMessage.innerHTML = message.loading)
-	         .then( () => statusMessage.innerHTML = message.success)
-	         .catch( () => statusMessage.innerHTML = message.failure)
-	         .then(clearInput)
-	  }
+	     	// AJAX
 
-	  function clearInput() {
-	    for (let i = 0; i < formInput.length; i++) {
-	      formInput[i].value = '';
-	    }
-	  }
-	 });
-	}
-	sendForm(form, modalInput);
-	sendForm(contactForm, contactInput);
+	     	let request = new XMLHttpRequest();
+	     	request.open('POST', 'server.php');
+
+	     	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	     	let formData = new FormData(formType);
+
+	     	request.send(formData);
+
+	     	request.onreadystatechange = function() {
+	     		if (request.readyState < 4) {
+	     			statusMessage.innerHTML = message.loading;
+	     		} else if (request.readyState === 4) {
+	     			if (request.status == 200 && request.status < 300) {
+	     				statusMessage.innerHTML = message.success;
+	     				// Добавляем контент на страницу
+	     			}
+	     			else {
+	     				statusMessage.innerHTML = message.failure;
+	     			}
+	     		}
+	     	}
+
+	     	for (let i = 0; i < formInput.length; i++) {
+	     		// Очищаем поля ввода
+	     		formInput[i].value = '';
+	     	}
+	     });
+	 };
+
+	 sendForm(form, modalInput);
+	 sendForm(contactForm, contactInput);
 }
 
 module.exports = send;
