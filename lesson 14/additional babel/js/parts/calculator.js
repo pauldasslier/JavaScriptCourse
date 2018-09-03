@@ -47,7 +47,7 @@ function calculator() {
 	});
 
 	place.addEventListener('change', function() {
-		if (restDays.value == '' || persons.value == '') {
+		if (restDays.value == '' || persons.value == '' || persons.value == 0 || restDays.value == 0) {
  		totalValue.innerHTML = 0;
 		} else {
 			getSelect();
