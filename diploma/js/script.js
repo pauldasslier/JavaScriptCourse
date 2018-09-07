@@ -1,8 +1,10 @@
 'use strict'
 window.addEventListener('DOMContentLoaded', function() {
 
-  let slider = require('./parts/slider.js');
+  let sliderTop = require('./parts/slider_top.js');
+  let sliderBottom = require('./parts/slider_bottom.js');
 
-  slider();
+  sliderTop();
+  sliderBottom();
 
 });

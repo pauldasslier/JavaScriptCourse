@@ -863,6 +863,7 @@ h4 {
 }
 .feedback-block {
   position: relative;
+  left: 4rem;
 }
 .feedback-block .button-order {
   position: absolute;
