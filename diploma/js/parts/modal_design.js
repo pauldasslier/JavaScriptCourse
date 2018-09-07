@@ -3,7 +3,7 @@ function modalDesign() {
 	    close = document.getElementsByClassName('popup-close')[2],
 	    modalForm = document.querySelector('.popup-design');
 
-	function showModal(prop) {
+	function showModal() {
 		for(let i = 0; i < btnDesign.length; i++) {
 			btnDesign[i].addEventListener('click', function() {
 				modalForm.style.display = 'block';
