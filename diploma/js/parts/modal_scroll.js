@@ -14,9 +14,6 @@ function modalScroll() {
 			}
 		}
 
-  // Вызываем функцию отлавливания клика на всех кнопках
-		// btnClick(btnDesign);
-		// btnClick(btnConsult);
 		btnClick(btnAll);
 
   // Отлавливаем событие прокрутки
