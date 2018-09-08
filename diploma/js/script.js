@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let modalConsult = require('./parts/modal_consult.js');
   let modalScroll = require('./parts/modal_scroll.js');
   let modalTime = require('./parts/modal_time.js');
+  let loadImg = require('./parts/load_img.js');
 
   sliderTop();
   sliderBottom();
@@ -16,5 +17,6 @@ window.addEventListener('DOMContentLoaded', function() {
   modalConsult();
   modalScroll();
   modalTime();
+  loadImg();
 
 });
