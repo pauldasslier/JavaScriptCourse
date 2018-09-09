@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let modalScroll = require('./parts/modal_scroll.js');
   let modalTime = require('./parts/modal_time.js');
   let loadImg = require('./parts/load_img.js');
+  let getAccordion = require('./parts/accordion.js');
 
   sliderTop();
   sliderBottom();
@@ -18,5 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
   modalScroll();
   modalTime();
   loadImg();
+  getAccordion();
+
 
 });
