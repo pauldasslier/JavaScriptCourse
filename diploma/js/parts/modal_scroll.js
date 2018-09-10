@@ -20,7 +20,6 @@ function modalScroll() {
   window.onscroll = function() {
    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
    // Отлавливаем прокрутку до конца страницы
-   console.log(scrolled);
    if(scrolled > 11190) {
     function testEvent() {
     	if (document.querySelector('.fixed-gift') != null && eventClick != 1) {
