@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let getAccordion = require('./parts/accordion.js');
   let getTabs = require('./parts/tabs.js');
   let sendModalForm = require('./parts/modal_form.js');
+  let getBurger = require('./parts/burger_menu.js');
 
   sliderTop();
   sliderBottom();
@@ -24,6 +25,7 @@ window.addEventListener('DOMContentLoaded', function() {
   getAccordion();
   getTabs();
   sendModalForm();
+  getBurger();
 
 
 });
