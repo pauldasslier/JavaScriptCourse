@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let getTabs = require('./parts/tabs.js');
   let sendModalForm = require('./parts/modal_form.js');
   let getBurger = require('./parts/burger_menu.js');
+  let getPictures = require('./parts/pictures.js');
 
   sliderTop();
   sliderBottom();
@@ -26,6 +27,7 @@ window.addEventListener('DOMContentLoaded', function() {
   getTabs();
   sendModalForm();
   getBurger();
+  getPictures();
 
 
 });
