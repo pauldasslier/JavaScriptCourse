@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let loadImg = require('./parts/load_img.js');
   let getAccordion = require('./parts/accordion.js');
   let getTabs = require('./parts/tabs.js');
+  let sendModalForm = require('./parts/modal_form.js');
 
   sliderTop();
   sliderBottom();
@@ -22,6 +23,7 @@ window.addEventListener('DOMContentLoaded', function() {
   loadImg();
   getAccordion();
   getTabs();
+  sendModalForm();
 
 
 });

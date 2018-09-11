@@ -994,6 +994,8 @@ h4 {
   border: none;
   border-radius: 50px;
   margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .consultation input::-webkit-input-placeholder {
   color: black;
@@ -1082,8 +1084,11 @@ h4 {
   padding: 1.5rem;
   margin-bottom: 2.5rem;
   width: 100%;
-  color: inherit;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
   resize: none;
+  text-align: center;
 }
 .popup-consultation .form input::-webkit-input-placeholder,
 .popup-consultation .form textarea::-webkit-input-placeholder {
@@ -1203,6 +1208,17 @@ h4 {
 }
 .popup-design input[name="name"] {
   margin-top: 2rem;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+.popup-design input[name="phone"] {
+  margin-top: 2rem;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 .popup-design .file_uploa {
   position: relative;
@@ -1805,4 +1821,33 @@ h4 {
     padding: 3rem 3rem;
     width: 25rem;
   }
+}
+.modal-success_text {
+  font-size: 2rem;
+  padding-right: 0.5rem;
+  padding-top: 0.3rem;
+  margin: 0 auto;
+}
+.modal-success_img {
+  width: 3rem;
+}
+.modal-loading_text {
+  font-size: 2rem;
+  padding-right: 0.5rem;
+  margin: 0 auto;
+}
+.modal-loading_img {
+  width: 3rem;
+}
+.modal-failure_text {
+  font-size: 2rem;
+  padding-right: 0.5rem;
+  margin: 0 auto;
+}
+.modal-failure_img {
+  width: 3rem;
+}
+.status {
+  text-align: center;
+  margin-top: 5px;
 }
