@@ -15,8 +15,7 @@ function getBurger() {
 			}
 
 		} else {
-			console.log('1')
-			burgerMenu.style.display = 'none';
+			document.querySelector('.burger-menu').style.setProperty('display', 'none', 'important');
 		}
 
 	  timerId = setTimeout(tick, 40);
