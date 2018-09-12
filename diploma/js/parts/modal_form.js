@@ -82,11 +82,17 @@ function sendModalForm() {
 	 });
 	}
 
-	rusLetters(consult_name);
-	rusLetters(design_name);
-	rusLetters(design_area);
-	rusLetters(footer_name);
-	rusLetters(footer_question);
+	let consultName = consultInput[0],
+	    designName = designInput[1],
+	    footerName = footerFormInput[0],
+	    designArea = designForm.getElementsByTagName('textarea')[0],
+	    footerQuestion = footerFormInput[3];
+
+	rusLetters(consultName);
+	rusLetters(designName);
+	rusLetters(designArea);
+	rusLetters(footerName);
+	rusLetters(footerQuestion);
 
 	let input = consultForm.getElementsByTagName('input')[1];
 	input.addEventListener("input", mask, false);
