@@ -15,7 +15,7 @@ function sliderTop() {
 			slides[i].style.display = 'none';
 		}
   // Показываем только первый слайд
-		slides[slideIndex - 1].style.display = 'block';
+		slides[slideIndex - 1].style.display = 'flex';
 	}
  // Функция пролистывания слайдера
 	function plusSlides(n) {
@@ -27,5 +27,6 @@ function sliderTop() {
 	  timerId = setTimeout(tick, 5000);
 	}, 5000);
 }
+
 
 module.exports = sliderTop;

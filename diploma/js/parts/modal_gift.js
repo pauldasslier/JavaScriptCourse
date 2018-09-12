@@ -6,7 +6,7 @@ function modalGift() {
  // Запускаем обработчик события клик на иконку подарка
 	gift.addEventListener('click', function() {
 		modalForm.style.display = 'block';
-		this.remove(gift);
+		gift.style.display = 'none';
 	});
  // Вешаем обработчик события на крестик у модального окна
 	close.addEventListener('click', function() {

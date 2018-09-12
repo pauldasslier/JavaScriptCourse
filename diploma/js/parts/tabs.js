@@ -29,7 +29,6 @@ function getTabs() {
 	    	} 
 	    	menuLi[i].classList.add('active'); 
 	   		for (let i = 0; i < wrapDiv.length; i++) { 
-	    		console.log(prop); 
 	    		if (!(wrapDiv[i].classList.contains(prop))) { 
 	    			wrapDiv[i].style.display = 'none'; 
 	    		} else { 
