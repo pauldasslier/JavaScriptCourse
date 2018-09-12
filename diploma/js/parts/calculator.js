@@ -57,7 +57,7 @@ function getCalc() {
 	    	if (promoInput.value == 'IWANTPOPART') {
 	    			totalValue.innerHTML = totalValue.innerHTML * 0.7;
 	    		}
-	    	promoInput.addEventListener('change', function() {
+	    	promoInput.addEventListener('input', function() {
 	    		if (promoInput.value == 'IWANTPOPART') {
 	    			totalValue.innerHTML = totalValue.innerHTML * 0.7;
 	    		}
