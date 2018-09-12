@@ -30,8 +30,13 @@ function getPictures() {
 				};
 			});
 			canvasDiv[i].addEventListener('mouseleave', function() {
+				let paragraph = canvasDiv[i].getElementsByTagName('p');
 				if (canvas[i].classList.contains(className)) {
 					canvas[i].setAttribute('src', def);
+					for(let i = 0; i < paragraph.length; i++) {
+						paragraph[i].style.display = 'block';
+					};
+
 				}
 			});
 
