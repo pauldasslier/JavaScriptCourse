@@ -1,25 +1,25 @@
 function getBurger() {
-	   let burgerBtn = document.querySelector('.burger'),
-	    burgerMenu = document.querySelector('.burger-menu');
+	let burgerBtn = document.querySelector('.burger'),
+	    burgerMenu = document.querySelector('.burger-menu'),
+	    maxWidth,
+	    btnStyle;
 
-	let timerId = setTimeout(function tick() {
-		let maxWidth = document.documentElement.clientWidth;
+	    burgerBtn.addEventListener('click', function() {
+	    	maxWidth = document.documentElement.clientWidth;
+	    	if (maxWidth <= 768) {
+	    		burgerMenu.classList.toggle('show');
+	    	}
+	    });
 
-		if (maxWidth <= 768) {
-
-			burgerBtn.onclick = function() {
-				open();
-			}
-			function open() {
-				burgerMenu.classList.toggle('show');
-			}
-
-		} else {
-			document.querySelector('.burger-menu').style.setProperty('display', 'none', 'important');
-		}
-
-	  timerId = setTimeout(tick, 40);
-	}, 40);
+	    let timerId = setTimeout(function tick() {
+	    	maxWidth = document.documentElement.clientWidth;
+	    	if (maxWidth > 768) {
+	    		for(let i = 0; i < burgerMenu.classList.length; i++) {
+	    			burgerMenu.classList = burgerMenu.classList[0];
+	    		}
+	    	}
+	    	timerId = setTimeout(tick, 40);
+	    }, 40);
 }
 
 
