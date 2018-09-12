@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', function() {
   modalGift();
   modalConsult();
   modalScroll();
-  modalTime();
   loadImg();
   getAccordion();
   getTabs();
@@ -30,6 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
   getBurger();
   getPictures();
   getCalc();
+  modalTime();
 
 
 });

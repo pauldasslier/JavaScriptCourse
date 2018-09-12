@@ -1,12 +1,13 @@
 function modalTime() {
 	let modalForm = document.querySelector('.popup-consultation'),
 	    designForm = document.querySelector('.popup-design'),
-	    giftForm = document.querySelector('.popup-gift');
+	    giftForm = document.querySelector('.popup-gift'),
+	    minute = 60000;
 
 	// Запускаем интервал с проверкой раз в 1 сек. для получения времени пребывания на странице
 	let timerId = setInterval(function() {
 		 // При превышении времени на странице в 60к миллисекунд - выводим модальное окно
-	  if (performance.now() > 60000) {
+	  if (performance.now() > minute ) {
 	  	if (designForm.style.display != 'block' && modalForm.style.display != 'block' && 
 	  		giftForm.style.display != 'block') {
 	  		modalForm.style.display = 'block';

@@ -6,10 +6,16 @@ function getBurger() {
 		let maxWidth = document.documentElement.clientWidth;
 
 		if (maxWidth <= 768) {
-			burgerBtn.addEventListener('click', function() {
-				burgerMenu.style.display = 'block';
-			});
+
+			burgerBtn.onclick = function() {
+				open();
+			}
+			function open() {
+				burgerMenu.classList.toggle('show');
+			}
+
 		} else {
+			console.log('1')
 			burgerMenu.style.display = 'none';
 		}
 
