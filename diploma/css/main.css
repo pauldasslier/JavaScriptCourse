@@ -524,8 +524,9 @@ h4 {
 }
 .calc .promocode {
   opacity: 0.6;
+  text-align: center;
   font-family: 'Circe Extra Bold', sans-serif;
-  margin-left: 4rem;
+  margin-left: 3rem;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;

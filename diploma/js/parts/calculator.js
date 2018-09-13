@@ -10,6 +10,12 @@ function getCalc() {
 	    optionsSum = 0,
 	    promocode = 'IWANTPOPART';
 
+	    promoInput.addEventListener('input', function() {
+	    	if (promoInput.value == 'IWANTPOPART') {
+	    		promoInput.setAttribute('disabled', 'disabled');
+	    	}
+	    });
+
 	    function changeNaN() {
 	    	if (totalValue.textContent == NaN) {
 	    		totalValue.textContent = content;
