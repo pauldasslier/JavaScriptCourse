@@ -24,7 +24,7 @@ function modalScroll() {
     function testEvent() {
     	if (document.querySelector('.fixed-gift') != null && eventClick != 1) {
     		modalForm.style.display = 'block';
-    	 gift.remove();
+    	 gift.style.display = 'none';
     	}
     }
     testEvent();
