@@ -37,9 +37,9 @@ function sliderBottom() {
 	
  // Запуск функции пролистывания слайдера во временном интервале
 	let timerId = setTimeout(function tick() {
-		plusSlides(1)
+		plusSlides(1);
 		timerId = setTimeout(tick, 5000);
-	}, 5000)
+	}, 5000);
 }
 
 module.exports = sliderBottom;

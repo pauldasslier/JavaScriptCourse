@@ -18,7 +18,7 @@ function modalDesign() {
 				if (event.target == modalForm) {
 					modalForm.style.display = 'none';
 				}
-			})
+			});
 		}
 	}
 

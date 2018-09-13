@@ -46,17 +46,17 @@ function sendModalForm() {
 	 	} else if (request.readyState === 4) {
 	 		if (request.status == 200 && request.status < 300) {
 	 			// statusMessage.innerHTML = message.success;
-	 			statusMessage.innerHTML = '<span class="modal-success_text">Спасибо, скоро мы с вами свяжемся</span><img src="img/ok-mark.png" class="modal-success_img" alt="">'
+	 			statusMessage.innerHTML = '<span class="modal-success_text">Спасибо, скоро мы с вами свяжемся</span><img src="img/ok-mark.png" class="modal-success_img" alt="">';
 
 	 			// Добавляем контент на страницу
 	 		}
 	 		else {
 	 			// statusMessage.innerHTML = message.failure;
-	 			statusMessage.innerHTML = '<span class="modal-success_text">Что-то пошло не так</span><img src="img/close-button.png" class="modal-failure_img" alt="">'
+	 			statusMessage.innerHTML = '<span class="modal-success_text">Что-то пошло не так</span><img src="img/close-button.png" class="modal-failure_img" alt="">';
 
 	 		}
 	 	}
-	 }
+	 };
 
 	 for (let i = 0; i < formInput.length; i++) {
 	 	// Очищаем поля ввода
@@ -64,7 +64,7 @@ function sendModalForm() {
 	 }
 	});
 
-	}
+	};
 	sendForm(designForm, designInput);
 	sendForm(consultForm, consultInput);
 	sendForm(footerForm, footerFormInput);
@@ -111,7 +111,7 @@ function sendModalForm() {
 	    this.value = matrix;
 	    i = matrix.lastIndexOf(val.substr(-1));
 	    i < matrix.length && matrix != this.defaultValue ? i++ : i = matrix.indexOf('_');
-	    setCursorPosition(i, this)
+	    setCursorPosition(i, this);
 	}
 	
 		function setCursorPosition(pos, elem) {
@@ -123,11 +123,11 @@ function sendModalForm() {
 		      range.collapse(true);
 		      range.moveEnd('character', pos);
 		      range.moveStart('character', pos);
-		      range.select()
+		      range.select();
 		  }
 		}
 
-};
+}
 
 module.exports = sendModalForm;
 

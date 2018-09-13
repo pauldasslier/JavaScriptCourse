@@ -32,7 +32,7 @@ function getTabs() {
 	    		if (!(wrapDiv[i].classList.contains(prop))) { 
 	    			wrapDiv[i].style.display = 'none'; 
 	    		} else { 
-	    			showEmptyMessage = false 
+	    			showEmptyMessage = false;
 	    		} 
 	    	} 
 	   		if(showEmptyMessage){ 

@@ -12,7 +12,7 @@ function getAccordion() {
  			btnSpan[i].classList.add('ui-accordion-header-active');
  			blockAcc[i].classList.add('ui-accordion-content-active');
  		}
- 	})
+ 	});
  }
 }
 

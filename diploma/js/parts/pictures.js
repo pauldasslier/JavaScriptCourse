@@ -25,9 +25,9 @@ function getPictures() {
 					canvas[i].setAttribute('src', hov);
 					for(let i = 0; i < paragraph.length; i++) {
 						paragraph[i].style.display = 'none';
-					};
+					}
 
-				};
+				}
 			});
 			canvasDiv[i].addEventListener('mouseleave', function() {
 				let paragraph = canvasDiv[i].getElementsByTagName('p');
@@ -35,19 +35,20 @@ function getPictures() {
 					canvas[i].setAttribute('src', def);
 					for(let i = 0; i < paragraph.length; i++) {
 						paragraph[i].style.display = 'block';
-					};
+					}
 
 				}
 			});
 
-		};
-	};
+		}
+	}
 
 	getCanvas(sizeXS, sizeXSnew, xsClass);
 	getCanvas(sizeS, sizeSnew, sClass);
 	getCanvas(sizeM, sizeMnew, mClass);
 	getCanvas(sizeL, sizeLnew, lClass);
+
 }
-getPictures()
+
 
 module.exports = getPictures;

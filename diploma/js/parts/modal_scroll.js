@@ -10,7 +10,7 @@ function modalScroll() {
 			for(let i = 0; i < prop.length; i++) {
 				prop[i].onclick = function() {
 					eventClick = 1;
-				}
+				};
 			}
 		}
 
@@ -29,7 +29,7 @@ function modalScroll() {
     }
     testEvent();
    }
-  }
+  };
 	}
 
 	showModal();
