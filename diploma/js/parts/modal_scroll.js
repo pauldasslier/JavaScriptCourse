@@ -22,7 +22,7 @@ function modalScroll() {
    // Отлавливаем прокрутку до конца страницы
    if(scrolled > 11190) {
     function testEvent() {
-    	if (document.querySelector('.fixed-gift') != null && eventClick != 1) {
+    	if (document.querySelector('.fixed-gift') != null && eventClick != 1 && modalForm.style.display != 'none') {
     		modalForm.style.display = 'block';
     	 gift.style.display = 'none';
     	}
